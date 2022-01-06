@@ -12,7 +12,7 @@
 
 ## 1.&nbsp;发布流程
 自建H5应用在部署发布到浙里办系统在2021年底12月之后统一通过浙江省一体化数字资源系统(IRS)部署发布。因为这个系统的本质其实就是把我们开发的应用部署到官方的容器中使用，所以开发标准和规范都需要按照官方的要求来走，否则很可能会影响应用上架。这里给出一个IRS应用的发布流程图。发布类型的区别举例子说明：如果是浙里办的话就是服务侧应用，需要走省里的审核流程。例如浙政钉的话就是治理侧应用，审核流程只需要走到市里的大数据局就可以了。
-![avatar](https://github.com/winoooops/ZLBGTFO/tree/main/images/flow.png) 
+![flow](https://github.com/winoooops/ZLBGTFO/tree/main/images/flow.png) 
 
 因为现在IRS的发布把业主和开发商的账户分开了，所以现在官方给的对接文档有两份，一份是[IRS应用发布（开发商）](https://github.com/winoooops/ZLBGTFO/tree/main/files/kfs.pdf)给我们提交应用和修改接口时使用，一份是[IRS应用发布（政府工作人员）](https://github.com/winoooops/ZLBGTFO/tree/main/files/yz.pdf)用来给业主提交申请和审核应用（其实大多数时间还是我们用-.-）。
 ### 1.2&nbsp;系统账号申请
@@ -37,7 +37,7 @@
 # subdomain 是我们想要映射出来的虚拟IP地址的
 ```
 输入完之后敲回车，如果成功就可以看到下面这个输出，这样就可以愉快的用外网访问我们本地的这个服务啦～
-![avatar](https://github.com/winoooops/ZLBGTFO/tree/main/images/screenshot.png)
+![pierced](https://github.com/winoooops/ZLBGTFO/tree/main/images/screenshot.png)
 
 ### 2.2&nbsp;vConsole
 
@@ -54,7 +54,7 @@
 - 调试用手机进入浙里办扫描上一步出现的二维码
 
 完成之后就会看到ZWEurope像浏览器的F11一样打印出一系列调试信息。这样就可以解决在浙里办App中无法查看浙里办平台调试信息的问题
-![avatar](https://github.com/winoooops/ZLBGTFO/tree/main/images/screenshot2.png)
+![zweurope](https://github.com/winoooops/ZLBGTFO/tree/main/images/screenshot2.png)
 ## 3.&nbsp;适老化
 因为我也是第一次接受浙里办的H5开发，所以在开发流程这里遇到了挺多弯路的，主要就在1）适老化，2）接口的对接和3）单点登录这三个大点上。
 
@@ -159,12 +159,12 @@ export default {
 2. 点击**新建API**
 3. 配置API名称：
   API名称固定用`mgop.${app_id}.app.${api_name}`这种形式，其中app_id一定得是应用申请通过后大数据局发过来的excel里的app_id， api_id为我们系统里实际的名称；api从属系统选择当前要上架的应用名称；是否需要登录就选**否**
-  ![avatar](https://github.com/winoooops/ZLBGTFO/tree/main/images/mgop1.png) 
+  ![mgop1](https://github.com/winoooops/ZLBGTFO/tree/main/images/mgop1.png) 
 4. 配置API地址：这里的两个地址顾名思义就是生产环境和测试环境的后台接口地址，在对接单点登录之前都可以在浙里办的地址后面加上`/debug`来访问测试环境的地址。
 > ⚠️ 单点登录因为需要找钉钉里面的老师配置回调地址，所以无法这么直接切换环境
-  ![avatar](https://github.com/winoooops/ZLBGTFO/tree/main/images/mgop2.png)
+  ![mgop2](https://github.com/winoooops/ZLBGTFO/tree/main/images/mgop2.png)
 5. 配置API入参出参： 
-  ![avatar](https://github.com/winoooops/ZLBGTFO/tree/main/images/mgop3.png)
+  ![mgop3](https://github.com/winoooops/ZLBGTFO/tree/main/images/mgop3.png)
 
 ### 4.2&nbsp;Axios封装请求
 所以现在的问题就是——在开发过程中用的Axios，在线上发布的时候需要用另外MGOP来发送API请求，所以需要做2套接口？这我肯定是不愿意的, 我所做的就是通过**Node.js**的环境变量帮助我用两种不同的封装方式发送同一套接口请求。
@@ -290,7 +290,7 @@ export function login(data) {
 - C）获取票据信息
 - D）票据无效时跳转展示页
 
-![avatar](https://github.com/winoooops/ZLBGTFO/tree/main/images/permission.png)
+![permission](https://github.com/winoooops/ZLBGTFO/tree/main/images/permission.png)
 
 ### 5.2&nbsp;**核心流程： URL ➜ 票据信息 ➜ 浙里办系统token ➜ 浙里办用户个人信息 ➜ 自建系统token**
 
@@ -337,7 +337,7 @@ export const bIsAlipayMini = sUserAgent.indexOf('alipay') > -1
 
 票据认证入参             |  票据认证出参
 :-------------------------:|:-------------------------:
-![avatar](https://github.com/winoooops/ZLBGTFO/tree/main/images/validateReq.png)| ![avatar](https://github.com/winoooops/ZLBGTFO/tree/main/images/validateRes.png)
+![req](https://github.com/winoooops/ZLBGTFO/tree/main/images/validateReq.png)| ![res](https://github.com/winoooops/ZLBGTFO/tree/main/images/validateRes.png)
 
 > ⚠️ 特别注意，在获得票据请求浙里办系统的token之后需要再次发送一次mgop请求才能获得用户信息，所以我们的后台服务器还需要根据[个人用户对接技术文档](https://github.com/winoooops/ZLBGTFO/tree/main/files/oath.docx)浙江政务服务网第地址帮我们转发`ticketValidation`和`userInfo`两个请求！！！
 
