@@ -565,7 +565,23 @@ router.beforeEach((to,from,next) => {
 
 ### 6.1&nbsp;埋点相关
 
-### 6.2&nbsp;IRS开发商工作台的操作
+### 6.2&nbsp;IRS政府工作人员工作台的操作
+
+> 前置条件: 政府内网访问 [政府工作人员工作台](https://irs.zj.gov.cn/home), 业主扫码后登录进去主页面
+
+这里的操作以 **更新新版本** 为例子
+1. 主页点击工作台
+![工作台](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs4.png)
+2. 检查服务测应用数量, 并点击我的资源
+![我的资源](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs5.png)
+3. 在服务端应用列表中的操作栏中点击应用发布
+![发布](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs6.png)
+4. 选择服务测发布
+![服务测发布](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs7.png)
+5. 点击操作栏中的重新部署
+![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs8.png)
+
+### 6.3&nbsp;IRS开发商工作台的操作
 > 前置条件: 让业主帮忙开通 浙政钉 账户, 需要提供手机号码, 姓名; 如果是苹果手机, 这需要从业主发来的邀请码中获取兑换码到App Store兑换下载.
 
 * 首先登录 [IRS开发商工作台](https://op-irs.zj.gov.cn/mobile/login?goto=/mobile/gateway/api), 并使用手机浙政钉App扫码登录
@@ -577,8 +593,8 @@ router.beforeEach((to,from,next) => {
   * 部署发布: 发布新版本和回滚应用版本的地方
   * 更多: 配置白名单等网管信息 和 投放的平台的选择 
 
-#### 6.2.1 发布新版本
-> 前置条件: 从当前项目的代码仓库以zip压缩包的形式下载源代码
+### 6.4&nbsp;开发商更新新版本
+> 前置条件: 政府业主已经在工作台中完成更新新版本的操作; 从当前项目的代码仓库以zip压缩包的形式下载源代码
 
 1. 点击发布管理后可以看到有两块区域, 上面的是应用当前的版本, 下面为当前的测试版本. 所有的新版本需要首先上线测试版本后才能提交为线上版本, 所以我们先点击测试版本操作区域中的更新代码
 ![更新代码](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs3.png)
@@ -586,21 +602,6 @@ router.beforeEach((to,from,next) => {
 3. 如果编译失败可以自行查看编译日志; 节假日前发布新版本提示构建超时为正常现象, 因为很多项目都在发布...
 4. 发布成功后可以通过页面里的二维码进行测试, 如果项目配置过单点登录地址并且登录的回调地址(详见 *单点登录* 部分)不是测试地址的话无法进行测试
 
-
-> 发布新版本后理论上应该联系业主交由他们测试后发布, 考虑到现行条件很多时候都是由开发商代替业主进行操作, 所以这部分的内容放在下一部分说明.
-
-
-### 6.3&nbsp;IRS政府工作人员工作台的操作
-
-![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs4.png))
-
-![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs5.png))
-
-![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs6.png))
-
-![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs7.png))
-
-![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs8.png))
 
 ## 参考资源
 - [操作手册 IRS应用发布（开发商）](https://github.com/winoooops/ZLBGTFO/tree/main/files/kfs.pdf)
