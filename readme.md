@@ -592,8 +592,15 @@ router.beforeEach((to,from,next) => {
 
 ### 6.3&nbsp;IRS政府工作人员工作台的操作
 
+![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs4.png))
 
+![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs5.png))
 
+![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs6.png))
+
+![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs7.png))
+
+![](https://github.com/winoooops/ZLBGTFO/tree/main/images/irs8.png))
 
 ## 参考资源
 - [操作手册 IRS应用发布（开发商）](https://github.com/winoooops/ZLBGTFO/tree/main/files/kfs.pdf)
