@@ -606,6 +606,7 @@ router.beforeEach((to,from,next) => {
 ## 参考资源
 - [操作手册 IRS应用发布（开发商）](https://github.com/winoooops/ZLBGTFO/tree/main/files/kfs.pdf)
 - [操作手册 IRS应用发布（政府工作人员）](https://github.com/winoooops/ZLBGTFO/tree/main/files/yz.pdf)
+- [政务中台旧版macOS应用安装包](https://pan.baidu.com/s/1gilZFyE7MTZ85d6DF-KQtw?pwd=6k8h)
 
 
 <!-- <style>
